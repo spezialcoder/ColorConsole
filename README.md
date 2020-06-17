@@ -15,3 +15,7 @@ System.out.println(Font.Background.CYAN);
 ```
 This changes the current background color.  
 You can reset the background color via: `Font.Fore.RESET`
+
+##### Formatting Text:
+ITALIC: `System.out.println(Font.Format.italicText("Hello World"));`
+BOLD: `System.out.println(Font.Format.boldText("Hello World"));`
