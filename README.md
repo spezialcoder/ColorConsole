@@ -6,4 +6,4 @@ Using foreground colors:
 ```Java
 System.out.println(Font.Fore.RED+"Hello World"+Font.Fore.RESET);
 ```
-This will output: <font color="RED">Hello World </font>
+This returns "Hello World" in red.
