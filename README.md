@@ -52,3 +52,20 @@ builder.addTextLine("Hello World!",
 );
 System.out.println(builder.getText());
 ```
+
+Global Options:  
+  
+Global options are options that can be applied to the entire text of the current TextBuilder instance.  
+  
+Example:
+```Java
+builder = new TextBuilder(); //Initialize the Builder
+builder.addTextOptions(
+       Fpmt.Background.BLACK,
+       Font.Fore.GREEN,
+       Font.Format.Codes.ITALIC
+); //Must be used before adding any text if you want to use global options
+
+builder.addTextLine("Hello World!",null); //Use null as options when you dont want any options
+System.out.println(builder.getText());
+```
