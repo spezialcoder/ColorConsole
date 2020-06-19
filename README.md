@@ -17,5 +17,38 @@ This changes the current background color.
 You can reset the background color via: `Font.Fore.RESET`
 
 ##### Formatting Text:
-ITALIC: `System.out.println(Font.Format.italicText("Hello World"));`
+Here are 2 examples how to format text:    
+  
+ITALIC: `System.out.println(Font.Format.italicText("Hello World"));`  
 BOLD: `System.out.println(Font.Format.boldText("Hello World"));`
+
+Available Formats:
+- `delText(text)`
+- `blinkText(text)`
+- `boldText(text)`
+- `underlineText(text)`
+- `upperlineText(text)`
+- `doubleUnderLine(text)`
+- `italicText(text)`
+
+Codes:  
+  
+You can also use Codes to format text.  
+Here an example:
+
+`System.out.println(Font.Format.Codes.BOLD + "Hello World");`
+
+### TextBuilder
+TextBuilder is a feature from ColorConsole.  
+With it you can easily build some bigger text.  
+Here an example:
+```Java
+builder = new TextBuilder(); //Initialize the Builder
+//addTextLine(text,options)
+builder.addTextLine("Hello World!",
+       Font.Format.Codes.BOLD,
+       Font.Fore.RED,
+       Font.Background.BLACK
+);
+System.out.println(builder.getText());
+```
