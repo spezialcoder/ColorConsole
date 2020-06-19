@@ -1,7 +1,10 @@
 package com.specialcoder.ColorConsole;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class TextBuilder {
-    private String content = "";
+    private HashMap<String,String> content = new HashMap<String,String>();
     private String globalOption = "";
 
     public TextBuilder() {
@@ -10,25 +13,25 @@ public class TextBuilder {
 
     public void addTextLine(String text,String... option) {
         if(option == null) {
-            this.content += globalOption+text+"\n";
+            this.content.put(text+"\n",null);
         } else {
             String options = "";
             for (String t : option) {
                 options += t;
             }
-            this.content += globalOption+options+text+Font.Fore.RESET+"\n";
+            this.content.put(text+"\n",options);
         }
     }
 
     public void addText(String text,String... option) {
         if(option == null) {
-            this.content += globalOption+text;
+            this.content.put(text,null);
         } else {
             String options = "";
             for (String t : option) {
                 options += t;
             }
-            this.content += globalOption+options+text+Font.Fore.RESET;
+            this.content.put(text,options);
         }
     }
 
@@ -40,7 +43,7 @@ public class TextBuilder {
     }
 
     public void clearText() {
-        this.content = "";
+        this.content.clear();
     }
 
     public void clearOptions() {
@@ -48,6 +51,14 @@ public class TextBuilder {
     }
 
     public String getText() {
-        return this.content;
+        String ret = "";
+        for(Map.Entry<String,String> entry : this.content.entrySet()) {
+            if(entry.getValue() == null) {
+                ret += globalOption+entry.getKey();
+            } else {
+                ret += globalOption+entry.getValue()+entry.getKey()+Font.Fore.RESET;
+            }
+        }
+        return ret;
     }
 }
