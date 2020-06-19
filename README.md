@@ -43,7 +43,7 @@ TextBuilder is a feature from ColorConsole.
 With it you can easily build some bigger text.  
 Here an example:
 ```Java
-builder = new TextBuilder(); //Initialize the Builder
+TextBuilder builder = new TextBuilder(); //Initialize the Builder
 //addTextLine(text,options)
 builder.addTextLine("Hello World!",
        Font.Format.Codes.BOLD,
@@ -59,13 +59,12 @@ Global options are options that can be applied to the entire text of the current
   
 Example:
 ```Java
-builder = new TextBuilder(); //Initialize the Builder
+TextBuilder builder = new TextBuilder(); //Initialize the Builder
 builder.addTextOptions(
-       Fpmt.Background.BLACK,
+       Font.Background.BLACK,
        Font.Fore.GREEN,
        Font.Format.Codes.ITALIC
-); //Must be used before adding any text if you want to use global options
-
+); 
 builder.addTextLine("Hello World!",null); //Use null as options when you dont want any options
 System.out.println(builder.getText());
 ```
